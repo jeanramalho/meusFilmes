@@ -79,11 +79,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FilmesTableViewCell.identifier, for: indexPath) as? FilmesTableViewCell else {return UITableViewCell() }
         
-        cell.textLabel?.text = filmes[indexPath.row].titulo
-        cell.imageView?.image = filmes[indexPath.row].imagem
+       
+        cell.capaFilmeImageView.image = filmes[indexPath.row].imagem
+        cell.tituloFilmeLabel.text = filmes[indexPath.row].titulo
+        cell.descricaoLabel.text = filmes[indexPath.row].descricao
         
         return cell
     }
-    
     
 }
