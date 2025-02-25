@@ -10,9 +10,11 @@ import UIKit
 class SplashViewController: UIViewController {
     
     let contentView: SplashView
+    let coordinator: MeusFilmesCoordinatorProtocol?
     
-    init(contentView: SplashView) {
+    init(contentView: SplashView, coordinator: MeusFilmesCoordinatorProtocol ) {
         self.contentView = contentView
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -27,6 +29,7 @@ class SplashViewController: UIViewController {
     
     private func setup(){
         
+        startTimer()
         setHierarchy()
         setConstraints()
     }
@@ -44,6 +47,12 @@ class SplashViewController: UIViewController {
             contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
+    }
+    
+    private func startTimer(){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {[weak self] in
+            self?.coordinator?.showHomeView()
+        }
     }
     
 }
