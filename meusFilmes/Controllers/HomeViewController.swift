@@ -9,13 +9,15 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    private let coordinator: MeusFilmesFlowController
+    
     let contentView: HomeView
     
     var filmes: [Filme] = []
     
-    init(contentView: HomeView) {
+    init(contentView: HomeView, coordinator: MeusFilmesFlowController) {
         self.contentView = contentView
-        
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -85,6 +87,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.descricaoLabel.text = filmes[indexPath.row].descricao
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detalheView = DetalhesView()
+        coordinator.showDetalhesView()
     }
     
 }
