@@ -10,9 +10,11 @@ import UIKit
 class DetalhesViewController: UIViewController {
     
     let contentView: DetalhesView
+    let filme: Filme
     
-    init(contentView: DetalhesView) {
+    init(contentView: DetalhesView, filme: Filme) {
         self.contentView = contentView
+        self.filme = filme
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -26,9 +28,15 @@ class DetalhesViewController: UIViewController {
     }
     
     private func setup(){
-        
+        configureContentView()
         setHierarchy()
         setConstraints()
+    }
+    
+    func configureContentView(){
+        contentView.filmeImageView.image = filme.imagem
+        contentView.nomeFilmeLabel.text = filme.titulo
+        contentView.descricaoFilmeLabel.text = filme.descricao
     }
     
     private func setHierarchy(){

@@ -90,8 +90,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detalheView = DetalhesView()
-        coordinator.showDetalhesView()
+        let filmeSelecionado = filmes[indexPath.row]
+        coordinator.showDetalhesView(filme: filmeSelecionado)
+        
+        
     }
     
 }

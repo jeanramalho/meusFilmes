@@ -60,7 +60,14 @@ class DetalhesView: UIView {
         NSLayoutConstraint.activate([
             filmeImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 12),
             filmeImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
-            filmeImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 12),
+            filmeImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
+            filmeImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.6),
+            
+            nomeFilmeLabel.topAnchor.constraint(equalTo: filmeImageView.bottomAnchor, constant: 18),
+            nomeFilmeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
+            
+            descricaoFilmeLabel.topAnchor.constraint(equalTo: nomeFilmeLabel.bottomAnchor, constant: 12),
+            descricaoFilmeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
         ])
     }
 }

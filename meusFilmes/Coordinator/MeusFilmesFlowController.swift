@@ -33,9 +33,9 @@ class MeusFilmesFlowController: MeusFilmesCoordinatorProtocol {
         self.navigationController?.setViewControllers([homeView], animated: true)
     }
     
-    func showDetalhesView(){
+    func showDetalhesView(filme: Filme){
         let contentView = DetalhesView()
-        let detalhesView = DetalhesViewController(contentView: contentView)
+        let detalhesView = DetalhesViewController(contentView: contentView, filme: filme)
         self.navigationController?.pushViewController(detalhesView, animated: true)
     }
 }
